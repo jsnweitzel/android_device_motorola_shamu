@@ -20,16 +20,6 @@
 # Everything in this directory will become public
 
 
-ifeq ($(TARGET_PREBUILT_KERNEL),)
-LOCAL_KERNEL := device/moto/shamu-kernel/zImage-dtb
-else
-LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
-endif
-
-
-PRODUCT_COPY_FILES := \
-    $(LOCAL_KERNEL):kernel
-
 PRODUCT_COPY_FILES += \
     device/moto/shamu/init.shamu.rc:root/init.shamu.rc \
     device/moto/shamu/init.shamu.power.rc:root/init.shamu.power.rc \
@@ -222,7 +212,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.radio.apm_sim_not_pwdn=1 \
-    persist.radio.no_wait_for_card=1
+    persist.radio.no_wait_for_card=1 \
+    persist.sys.root_access=1 \
+    persist.service.adb.enable=1
 
 #Reduce IMS logging
 PRODUCT_PROPERTY_OVERRIDES += \
