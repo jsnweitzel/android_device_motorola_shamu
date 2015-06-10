@@ -136,4 +136,6 @@ BOARD_HAL_STATIC_LIBRARIES := libdumpstate.shamu
 # Include an expanded selection of fonts
 EXTENDED_FONT_FOOTPRINT := true
 
+USE_CLANG_PLATFORM_BUILD := true
+
 -include vendor/motorola/shamu/BoardConfigVendor.mk
